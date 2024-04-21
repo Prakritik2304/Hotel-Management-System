@@ -1,0 +1,181 @@
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| employee           |
+| exam               |
+| information_schema |
+| mysql              |
+| performance_schema |
+| product            |
+| product1           |
+| sakila             |
+| student1           |
+| student2           |
+| student3           |
+| sys                |
+| world              |
++--------------------+
+13 rows in set (0.00 sec)
+
+mysql> create database hotel;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use hotel;
+Database changed
+mysql> create table login(username varchar(25), password varchar(25));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into login values('admin', '12345');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from login;
++----------+----------+
+| username | password |
++----------+----------+
+| admin    | 12345    |
++----------+----------+
+1 row in set (0.00 sec)
+
+mysql> create table employee(name varchar(25), age varchar(10), gender varchar(15), job varchar(30), salary varchar(15), phone varchar(15), email varchar(40), aadhar varchar(20));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> describe employee;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| name   | varchar(25) | YES  |     | NULL    |       |
+| age    | varchar(10) | YES  |     | NULL    |       |
+| gender | varchar(15) | YES  |     | NULL    |       |
+| job    | varchar(30) | YES  |     | NULL    |       |
+| salary | varchar(15) | YES  |     | NULL    |       |
+| phone  | varchar(15) | YES  |     | NULL    |       |
+| email  | varchar(40) | YES  |     | NULL    |       |
+| aadhar | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> select * from employee;
+Empty set (0.00 sec)
+
+mysql> create table room(roomnumber varchar(10), availability varchar(20), cleaning_status varchar(20), price varchar(20), bed_type varchar(20));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from room;
+Empty set (0.00 sec)
+
+mysql> update room set availability = 'Available' where roomnumber = '101';
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> create table driver(name varchar(20), age varchar(10), gender varchar(15), company varchar(20), branch varchar(20), available varchar(20), location varchar(40));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from driver;
+Empty set (0.00 sec)
+
+mysql> ALTER TABLE driver RENAME COLUMN branch TO brand;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> create table customer(document varchar(20), number varchar(30), name varchar(30), gender varchar(15), country varchar(20), room varchar(10), checkintime varchar(80), deposit varchar(20));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from customer;
+Empty set (0.00 sec)
+
+mysql> create table department(department varchar(30), budget varchar(30));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into department values('Front Office','500000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into department values('Housekeeping', '40000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into department values('Food and Beverage', '23000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into department values('Kitchen or Food Production', '540000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into department values('Security', '320000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from department;
++----------------------------+--------+
+| department                 | budget |
++----------------------------+--------+
+| Front Office               | 500000 |
+| Housekeeping               | 40000  |
+| Food and Beverage          | 23000  |
+| Kitchen or Food Production | 540000 |
+| Security                   | 320000 |
++----------------------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee;
+Empty set (0.00 sec)
+
+mysql> select * from room;
++------------+--------------+-----------------+-------+------------+
+| roomnumber | availability | cleaning_status | price | bed_type   |
++------------+--------------+-----------------+-------+------------+
+| 001        | Available    | Cleaned         | 10000 | Double Bed |
++------------+--------------+-----------------+-------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee;
++----------+------+--------+-------------------+--------+------------+--------------+---------------+
+| name     | age  | gender | job               | salary | phone      | email        | aadhar        |
++----------+------+--------+-------------------+--------+------------+--------------+---------------+
+| Prakriti | 20   | female | Front Desk Clerks | 10000  | 7470493536 | 916253682642 | asd@gmail.com |
++----------+------+--------+-------------------+--------+------------+--------------+---------------+
+1 row in set (0.00 sec)
+
+mysql> select * from login;
++----------+----------+
+| username | password |
++----------+----------+
+| admin    | 12345    |
++----------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from login;
++----------+----------+
+| username | password |
++----------+----------+
+| admin    | 12345    |
++----------+----------+
+1 row in set (0.00 sec)
+
+mysql> select * from employee;
++----------+------+--------+-------------------+--------+------------+--------------+---------------+
+| name     | age  | gender | job               | salary | phone      | email        | aadhar        |
++----------+------+--------+-------------------+--------+------------+--------------+---------------+
+| Prakriti | 20   | female | Front Desk Clerks | 10000  | 7470493536 | 916253682642 | asd@gmail.com |
++----------+------+--------+-------------------+--------+------------+--------------+---------------+
+1 row in set (0.00 sec)
+
+mysql> select * from room;
++------------+--------------+-----------------+-------+------------+
+| roomnumber | availability | cleaning_status | price | bed_type   |
++------------+--------------+-----------------+-------+------------+
+| 001        | Available    | Cleaned         | 10000 | Double Bed |
++------------+--------------+-----------------+-------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from customer;
+Empty set (0.00 sec)
+
+mysql> select * from driver;
++-------+------+--------+---------+----------+-----------+-------------+
+| name  | age  | gender | company | brand    | available | location    |
++-------+------+--------+---------+----------+-----------+-------------+
+| Chiya | 20   | Female | benz    | mercedes | Yes       | smritinagar |
++-------+------+--------+---------+----------+-----------+-------------+
+1 row in set (0.00 sec)
+
+mysql>
